@@ -32,7 +32,7 @@ export const login = async (req, res, next) => {
         if(!user) {return res.status(400).json({message: 'Username is not registered'})}
         const comparedPassword = await comparePassword(req.body.password, user.password)
         if(!comparedPassword) {
-            return res.status(400).json({message: "Password is incorrect mal!"});
+            return res.status(400).json({message: "Password is incorrect!"});
         }
         const token = jwt.sign({id: user._id, isSeller: user.isSeller}, process.env.JWT_SECRET, {expiresIn: '1d'})
         const { password, ...otherDetails } = user._doc;
