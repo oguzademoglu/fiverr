@@ -13,8 +13,8 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(username,password);
-    const currenUser = localStorage.getItem('currentUser')
-    if(currenUser) { navigate('/') } 
+    const currentUser = localStorage.getItem('currentUser')
+    if(currentUser) { navigate('/') } 
     setUsername('');
     setPassword('');
   }
